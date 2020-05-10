@@ -30,6 +30,17 @@ public class Swipmenu extends Fragment {
         //pager는 main_cardlayout.xml의 ID
         viewPager.setAdapter(demoCollectionPagerAdapter);
     }
+
+
+    class CollectionDemoFragment extends Fragment {
+
+        public void onViewCreated(View view, Bundle savedInstanceState)
+        {
+            TableLayout tabLayout = view.findViewById(R.id.tab_layout);
+            tabLayout.setupWithViewPager(viewPager);
+        }
+
+    }
 }
 
 
@@ -48,13 +59,21 @@ public class DemoObjectFragment extends Fragment{
     }
 }
 
+public class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter
+{
 
-class CollectionDemoFragment extends Fragment {
-
-    public void onViewCreated(View view, Bundle savedInstanceState)
+    public int getitem(int)
     {
-        TableLayout tabLayout = view.findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager)
+
+    }
+    public int getCount()
+    {
+        return 4;
+    }
+
+    public CharSequence getPageTitle(int position)
+    {
+        return "OBJECT" + (position +1);
     }
 
 }
